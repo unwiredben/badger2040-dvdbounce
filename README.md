@@ -1,4 +1,18 @@
-# Pico C++ Boilerplate Project <!-- omit in toc -->
+# Badger2040 DVDLogo
+
+This is a small project for the Pimoroni Badger2040 that shows the classic DVD
+logo screensaver on the ePaper screen. It's completely unnecessary.
+
+This is based on the boilerplate Pimoroni Pico project and inherits it's Git
+history.  The rest of the readme is based on this.
+
+For each of building, I set the PICO_SDK_PATH and PIMORONI_PICO_PATH variables
+in the CMakeLists.txt file with directories parallel to this project folder.
+Adjust that for your own build or set them in your environment.
+
+
+
+# Boilerplate 
 
 This project is intended as a starting point for working with the Pico SDK and Pimoroni Libraries in C++.
 

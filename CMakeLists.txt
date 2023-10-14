@@ -1,7 +1,11 @@
 cmake_minimum_required(VERSION 3.12)
 
 # Change your executable name to something creative!
-set(NAME pico-boilerplate) # <-- Name your project/executable here!
+set(NAME badger2040-dvdbounce) # <-- Name your project/executable here!
+
+set(PICO_SDK_PATH "../../pico-sdk")
+set(PIMORONI_PICO_PATH "../../pimoroni-pico")
+set(PICO_BOARD "pimoroni_badger2040")
 
 include(pimoroni_pico_import.cmake)
 include(pico_sdk_import.cmake)
@@ -16,22 +20,19 @@ pico_sdk_init()
 
 # Add your source files
 add_executable(${NAME}
-    main.cpp # <-- Add source files here!
+    main.cpp
 )
 
-# Include required libraries
-# This assumes `pimoroni-pico` is stored alongside your project
-include(common/pimoroni_i2c)
-include(common/pimoroni_bus)
-include(libraries/bitmap_fonts/bitmap_fonts)
-include(libraries/hershey_fonts/hershey_fonts)
-include(libraries/pico_explorer/pico_explorer)
+include(libraries/badger2040/badger2040)
 
-# Don't forget to link the libraries you need!
 target_link_libraries(${NAME}
-    pimoroni_i2c
-    pico_explorer # <-- List libraries here!
+    badger2040
+    hardware_spi
+    pico_stdlib
 )
+
+# enable usb output
+pico_enable_stdio_usb(${NAME} 1)
 
 # create map/bin/hex file etc.
 pico_add_extra_outputs(${NAME})
